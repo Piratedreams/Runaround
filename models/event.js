@@ -8,6 +8,7 @@ const eventSchema = mongoose.Schema({
   RSVP: {type: Boolean, required: true}
 });
 
+
 const Event = mongoose.model('Event', eventSchema)
 
 module.exports = Event;

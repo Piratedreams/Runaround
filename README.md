@@ -42,3 +42,24 @@ Project 2
   
   
   
+Division of Work: 
+
+
+Ben: 
+- Events controller
+- Events Views
+- Color Scheme
+- Bootstrap
+
+
+Davis: 
+- Models
+- Auth Controller
+- Server File
+- Bootstrap
+
+Tommie:
+- Runners Controller
+- Runners Views
+- Image Collection
+- Bootstrap

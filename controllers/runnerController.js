@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router  = express.Router();
 const runner  = require('../models/runner');
 const event   = require('../models/event');
@@ -8,7 +9,7 @@ router.get ('/', async (req, res)=>{
         const foundRunners = await runner.find({});
         res.render('index.ejs', {
             runner: foundRunner
-        });
+
 
     } catch(err){
         res.send(err)
@@ -20,6 +21,7 @@ router.get ('/', async (req, res)=>{
     //     });
     // });
 });
+
 
 // router.get('/new', (req, res)=>{
 //     res.render('runner/new.ejs');
@@ -121,3 +123,4 @@ router.delete('/:id', async (req, res)=>{
 
 
 module.exports = router;
+

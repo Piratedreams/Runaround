@@ -5,9 +5,10 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 require('./db/db')
 
-const runnerController  = require('./controllers/runnerController.js');
-const eventController = require('./controllers/eventController.js');
-const authController = require('./controllers/authController.js');
+
+const runnersController  = require('./controllers/runnerController');
+const eventsController = require('./controllers/eventController');
+const authController = require('./controllers/authController');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
@@ -20,6 +21,7 @@ app.use(session({
 
 app.use('/runner', runnerController);
 app.use('/event', eventController);
+
 app.use('/auth', authController);
 
 app.listen(3000, () => {
