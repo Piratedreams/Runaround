@@ -1,15 +1,11 @@
 const express = require('express');
-const route   = express.Router();
+const router   = express.Router();
 const Runner  = require('../models/Runner');
 const Event   = require('../models/Event');
 
-// This function gets a list of all the Users
 router.get('/', (req, res)=>{
-    //  find Runners in the database
     Runners.find({}, (err, runnersFromTheDatabase)=>{
-        //  Show the runner on the screen
         res.render('runner/index.ejs', {
-            //  move the runners from the DB to the template
             runnersOnTheTemplate: runnersFromTheDatabase
         });
     });
@@ -24,8 +20,8 @@ router.get('/new', (req, res)=>{
 // Get a user by ID
 router.get('/:id', (req, res)=>{
     //  Find the User by ID
-    User.findById(req.params.id) 
-    //  Load cats 
+    User.findById(req.params.id)
+    //  Load cats
     .populate('cats')
     //  search for a match in the user DB
     .exec((err, runnerFromTheDatabase)=>{
@@ -69,7 +65,7 @@ router.post('/', (req, res)=>{
 
 //  get a user to be updated
 router.put('/:id', (req, res)=>{
-    //  pass the user ID to the function for update 
+    //  pass the user ID to the function for update
     Runner.findByIdAndUpdate(req.params.id, req.body, (err, userFromTheDatabase)=>{
         // show the user to update
         console.log(runnerFromTheDatabase);
