@@ -1,99 +1,126 @@
 const express = require('express');
-const router   = express.Router();
-const Runner  = require('../models/Runner');
-const Event   = require('../models/Event');
 
-router.get('/', (req, res)=>{
-    Runner.find({}, (err, runnersFromTheDatabase)=>{
-        res.render('runner/index.ejs', {
-            runnersOnTheTemplate: runnersFromTheDatabase
-        });
-    });
+const router  = express.Router();
+const runner  = require('../models/runner');
+const event   = require('../models/event');
+
+router.get ('/', async (req, res)=>{
+    try {
+        const foundRunners = await runner.find({});
+        res.render('index.ejs', {
+            runner: foundRunner
+
+
+    } catch(err){
+        res.send(err)
+    }
+
+    // runners.find({}, (err, runnersFromTheDatabase)=>{
+    //     res.render('runner/index.ejs', {
+    //         runnersOnTheTemplate: runnersFromTheDatabase
+    //     });
+    // });
 });
 
-// Show the form to create a new user
-router.get('/new', (req, res)=>{
-    // render the new.ejs screen
-    res.render('runners/new.ejs');
-})
 
-// Get a user by ID
-router.get('/:id', (req, res)=>{
-    //  Find the User by ID
-    User.findById(req.params.id)
-    //  Load cats
-    .populate('cats')
-    //  search for a match in the user DB
-    .exec((err, runnerFromTheDatabase)=>{
-        // check for an error
-        if(err){
-            // send the error
-            res.send(err);
-        // if there's no error
-        } else {
-            // render the users screen
-            res.render('runners/show.ejs', {
-                // move the runners from the DB to the ejs
-                runnerOnTheTemplate: runnerFromTheDatabase});
+// router.get('/new', (req, res)=>{
+//     res.render('runner/new.ejs');
+// })
+
+router.get('/:id', async (req, res)=>{
+
+    try {
+        const foundRunner = await runner.findById(req,params,id);
+        res.render('show.ejs', {
+          runner: foundRunner
+        });
+
+        } catch(err){
+            res.send(err)
         }
+    // runner.
+    // findById(req.params.id)  
+    // .populate('runners')
+    // .exec((err, runnerFromTheDatabase)=>{
+    //     if(err){
+    //         res.send(err);
+    //     } else {
+    //         res.render('runner/show.ejs', {
+    //             runnerOnTheTemplate: runnerFromTheDatabase});
+    //     }
+    // })
+});
 
-    })
+router.get('/:id/edit', async (req, res)=>{
+    const foundRunner = await runnerFindById(req.params.id)
+
+    try {
+        res.render('new.ejs', {
+            runner: foundRunner
+        });
+
+        } catch(err){
+            res.send(err)
+        }
+    
+    // Runner.findById(req.params.id, (err, runnerFromTheDatabase)=>{
+    //     res.render('runner/edit.ejs', {
+    //         runnerOnTheTemplate: runnerFromTheDatabase
+    //     })
+    // })
 })
 
-//  Get an existing user by ID
-router.get('/:id/edit', (req, res)=>{
-    //  Passes the User ID to the findById function
-    Runner.findById(req.params.id, (err, runnerFromTheDatabase)=>{
-        // Render the edit.ejs
-        res.render('users/edit.ejs', {
-            // move a user from the DB to the Template
-            runnerOnTheTemplate: runnerFromTheDatabase
-        })
-    })
+router.post('/', async (req, res)=>{
+    try {
+        const createRunner = await runner.create(req.body);
+        redirect('/runners');
+
+    } catch(err){
+        res.send(err)
+    }
+    
+    // Runner.create(req.body, (err, newlyCreatedRunner)=>{
+    //     console.log(newlyCreatedRunner)
+    //     res.redirect('/runner')
+    // })
+});
+
+router.put('/:id', async (req, res)=>{
+    try {
+        const updateRunner = await runner.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.redirect('/runners');
+
+    } catch(err){
+        res.send(err);
+    }
+    // Runner.findByIdAndUpdate(req.params.id, req.body, (err, runnerFromTheDatabase)=>{
+    //     console.log(runnerFromTheDatabase)
+    //     res.redirect('/runner');
+    // })
 })
 
-//  post the created user
-router.post('/', (req, res)=>{
-    // pass the body of the new form to the create function
-    Runner.create(req.body, (err, newlyCreatedRunner)=>{
-        // log the newly created user
-        console.lRunn(newlyCreatedUser)
-        // redirect back to the users page
-        res.redirect('/users')
-    })
-})
+router.delete('/:id', async (req, res)=>{
 
-//  get a user to be updated
-router.put('/:id', (req, res)=>{
-    //  pass the user ID to the function for update
-    Runner.findByIdAndUpdate(req.params.id, req.body, (err, userFromTheDatabase)=>{
-        // show the user to update
-        console.log(runnerFromTheDatabase);
-        // redirect back to the Users page
-        res.redirect('/users');
-    })
-})
+    try {
+        const deleteRunner = await runner.delete(req.body)
+        res.redirect('/runners')
 
-// This function deletes a user.
-router.delete('/:id', (req, res)=>{
-    // Delete the user from the DB
-    User.findByIdAndDelete(req.params.id, (err, runnerFromTheDatabase)=>{
-        // Show the deleted user
-        console.log(runnerFromTheDatabase);
-        // Delete ALL the cats associated with the deleted user
-        Cat.deleteMany({
-            _id: {
-                // Mongo delete cats where the ID matches the User
-                $in: runnerFromTheDatabase.cats
-            }
-            // Check for errors
-        }, (err, data)=>{
-            // Show the error
-            console.log(data);
-            // redirect back to the Users screen
-            res.redirect('/users');
-        })
-    })
-})
+        } catch(err){
+            res.show(err)
+        }
+    });
+    // runner.findByIdAndDelete(req.params.id, (err, runnerFromTheDatabase)=>{
+    //     console.log(runnerFromTheDatabase);
+    //     runner.deleteMany({
+    //         _id: {
+    //             $in: runnerFromTheDatabase.runner
+    //         }
+    //     }, (err, data)=>{
+    //         console.log(data);
+    //         res.redirect('/runner');
+    //     })
+    // })
+
 
 module.exports = router;
+
