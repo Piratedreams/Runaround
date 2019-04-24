@@ -38,7 +38,7 @@ router.get('/:id/edit', (req, res)=>{
 
 router.post('/', (req, res)=>{
     Runner.create(req.body, (err, newlyCreatedRunner)=>{
-        console.lRunn(newlyCreatedRunner)
+        console.log(newlyCreatedRunner)
         res.redirect('/runner')
     })
 })
