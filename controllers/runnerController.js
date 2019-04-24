@@ -5,9 +5,8 @@ const runner  = require('../models/runner');
 
 router.get ('/', async (req, res)=>{
     try {
-        const foundRunners = await runner.find({});
-        res.render('index.ejs', {
-            runner: foundRunner
+        const foundRunner = await runner.find({});
+        res.render('runner/index.ejs', {
         })
     } catch(err){
         res.send(err)
@@ -71,7 +70,7 @@ router.get('/:id/edit', async (req, res)=>{
 router.post('/', async (req, res)=>{
     try {
         const createRunner = await runner.create(req.body);
-        redirect('/runners');
+        res.redirect('/runner');
 
     } catch(err){
         res.send(err)
