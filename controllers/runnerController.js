@@ -1,8 +1,7 @@
 const express = require('express');
-
 const router  = express.Router();
 const runner  = require('../models/runner');
-const event   = require('../models/event');
+
 
 router.get ('/', async (req, res)=>{
     try {
