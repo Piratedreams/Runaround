@@ -1,16 +1,13 @@
 const express = require('express');
-
 const router  = express.Router();
 const runner  = require('../models/runner');
-const event   = require('../models/event');
+
 
 router.get ('/', async (req, res)=>{
     try {
         const foundRunner = await runner.find({});
         res.render('runner/index.ejs', {
-            runner: foundRunner
-        });
-
+        })
     } catch(err){
         res.send(err)
     }
