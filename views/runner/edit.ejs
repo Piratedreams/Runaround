@@ -22,8 +22,8 @@
       <h2>Runner Attributes:</h2>
       <form action="/runners/<%=runner._id%>?_method=PUT" method="post">
         <input type="text"   name="name"   value="<%=runner.name%>"/><br/>
-        <input type="number" name="Age"    value="<%=runner.age%>"/><br/>
-        <input type="text"   name="Gender" value="<%=runner.gender%>"/><br/>
+        <input type="text"   name="age"    value="<%=runner.age%>"/><br/>
+        <input type="text"   name="gender" value="<%=runner.gender%>"/><br/>
         <input type="submit"               value="Update Runner"/>
       </form>
     </main>

@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const runnerSchema = mongoose.Schema({
-  username: {type:String},
-  password: {type:String}
+  name: {type: String, required: true},
+  age: {type: Number, required: true},
+  gender: {type: String, required: true}
+});
 
-})
+const Runner = mongoose.model('Runner', runnerSchema);
 
-const Runner = mongoose.model('Runner', runnerSchema)
-
-module.exports = Runner
+module.exports = Runner;
