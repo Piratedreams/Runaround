@@ -1,4 +1,5 @@
 const express = require('express');
+
 const route   = express.Router();
 const Runner  = require('../models/runner');
 const Event   = require('../models/event');
@@ -44,9 +45,11 @@ router.post('/', (req, res)=>{
 })
 
 router.put('/:id', (req, res)=>{
+
     Runner.findByIdAndUpdate(req.params.id, req.body, (err, runnerFromTheDatabase)=>{
         console.log(runnerFromTheDatabase)
         res.redirect('/runner');
+
     })
 })
 
