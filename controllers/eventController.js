@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Event = require('../models/event');
 
 
-router.get('/event', (req, res) => {
-    res.render('/event/index.ejs')
+router.get('/', (req, res) => {
+    res.render('event/index.ejs')
 });
 
 router.get('/:id', async (req, res) => {
     try {
         const foundEvent = await Event.find({})
-        res.render('/event/index.ejs', {
+        res.render('event/show.ejs', {
             events: foundEvent
         });
     } catch (err){
@@ -18,10 +19,19 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/new', async (req, res) => {
+    try {
+        const foundEvent = await Event.find({})
+        res.render('event/new.ejs')
+    } catch (err) {
+        res.send(err)
+    }
+});
+
 router.post('/event', async (req, res) => {
     try {
         const createdEvent = await Event.create(req.body);
-        res.redirect('/event/new.ejs');
+        res.redirect('/event');
     } catch (err) {
         res.send(err)
     }
