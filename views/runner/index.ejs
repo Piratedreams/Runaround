@@ -10,10 +10,10 @@
       <nav>
         <ul>
           <li>
-            <a href="/runners">Runners</a>
+            <a href="/runner">Runners</a>
           </li>
           <li>
-            <a href="/runners">Runners</a>
+            <a href="/event">events</a>
           </li>
           <li>
             <a href="/auth/logout">Logout</a>
@@ -24,11 +24,11 @@
     <main>
       <h1>All Runners</h1>
       <ul>
-        <% for (let i = 0; i < runnner.length; i++){%>
+        <%for (let i = 0; i < runner.length; i++){%>
             <li>
               <a href="/runner/<%=runner[i]._id%>"><%= runner[i].name%></a>
             </li>
-        <% } %>
+        <%}%>
       </ul>
 
     </main>
