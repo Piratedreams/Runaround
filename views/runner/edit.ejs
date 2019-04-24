@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Edit <%=runner.name%>'s Info</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/runners">Runner Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Runner Attributes:</h2>
+      <form action="/runners/<%=runner._id%>?_method=PUT" method="post">
+        <input type="text"   name="name"   value="<%=runner.name%>"/><br/>
+        <input type="number" name="Age"    value="<%=runner.age%>"/><br/>
+        <input type="text"   name="Gender" value="<%=runner.gender%>"/><br/>
+        <input type="submit"               value="Update Runner"/>
+      </form>
+    </main>
+  </body>
+</html>
