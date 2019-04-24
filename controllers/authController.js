@@ -16,9 +16,9 @@ router.post('/register', async(req, res) => {
     userEntry.username = req.body.username
     userEntry.password = passwordHash
   try {
-    const createdRunner = Runner.create(userEntry)
-    // req.session.logged = true
-    // req.session.runnersId = createdRunner._id
+    const createdRunner = await Runner.create(userEntry)
+    req.session.logged = true
+    req.session.runnersId = createdRunner._id
 
     res.redirect('/runners')
 
