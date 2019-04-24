@@ -19,7 +19,7 @@ router.post('/register', async(req, res) => {
     const createdRunner = await Runner.create(userEntry)
     req.session.logged = true
     req.session.runnersId = createdRunner._id
-
+    console.log(createdRunner);
     res.redirect('/runners')
 
   } catch(error) {
