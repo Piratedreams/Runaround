@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Runner = require('../models/runner')
+// const Runner = require('../models/runner')
 const bcrypt =require('bcryptjs')
 
 router.get('/login', (req, res) => {
