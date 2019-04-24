@@ -26,12 +26,12 @@
         </ul>
       </section>
       <section>
-        <a href="/runners/<%=runner._id%>/edit">Edit</a>
+        <a href="/runner/<%=runner._id%>/edit">Edit</a>
       </section>
       <section>
         <h2>Races Run by this Runner</h2>
         <ul>
-          <% for (let i = 0; i < author.articles.length; i++) {%>
+          <% for (let i = 0; i < runner.event.length; i++) {%>
               <li><a href="/events/<%=runner.event[i]._id%>"><%=runner.events[i].title%></a></li>
           <% } %>
         </ul>
