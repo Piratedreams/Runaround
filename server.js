@@ -6,8 +6,8 @@ const session = require('express-session');
 require('./db/db')
 
 
-const runnersController  = require('./controllers/runnerController');
-const eventsController = require('./controllers/eventController');
+const runnerController  = require('./controllers/runnerController');
+const eventController = require('./controllers/eventController');
 const authController = require('./controllers/authController');
 
 app.use(bodyParser.urlencoded({extended: false}));
