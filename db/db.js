@@ -1,12 +1,3 @@
-const mongoose = require('mongoose');
-
-const connectionString = 'mongodb://localhost/runner';
-
-mongoose.connect(connectionString, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
 
 mongoose.connection.on('connected', () => {
   console.log('mongoose connected to ', connectionString);
