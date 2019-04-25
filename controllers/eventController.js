@@ -15,9 +15,19 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-router.get('/event/new', (req, res) => {
+router.get('/new', async (req, res) => {
     res.render('event/new.ejs')
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const createdEvent = await Event.create(req.body);
+        console.log(createdEvent);
+        res.redirect('/event');
+    } catch (err) {
+        console.log(err)
+        res.send(err)
+    }
 });
 
 router.get('/:id', async (req, res) => {
@@ -33,14 +43,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/event', async (req, res) => {
-    try {
-        const createdEvent = await Event.create(req.body);
-        res.redirect('/event');
-    } catch (err) {
-        res.send(err)
-    }
-});
 
 
 

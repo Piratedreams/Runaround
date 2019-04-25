@@ -5,7 +5,7 @@ const eventSchema =  new mongoose.Schema({
   when: {type: Date, required: true},
   location: {type: String, required: true},
   entranceFee: {type: Number, required: true},
-  RSVP: {type: Boolean, required: true}
+  RSVP: {type: Boolean}
 });
 
 
