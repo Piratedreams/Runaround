@@ -6,30 +6,15 @@
   </head>
   <body>
     <header>
-      <h1>RunAround</h1>
+      <h1>Welcome!</h1>
       <nav>
-        <ul>
-          <li>
-
-            <a href="/runner">Runners</a>
-
-          </li>
-          <li>
-            <a href="/auth/logout">Logout</a>
-          </li>
-        </ul>
+            <form action="/auth/logout">
+              <button type='submit'>Logout</button>
+            </form>
       </nav>
     </header>
-    <main>
-      <h1>All Runners</h1>
-      <ul>
-        <%for (let i = 0; i < runner.length; i++){%>
-            <li>
-              <a href="/runner/<%=runner[i]._id%>"><%= runner[i].name%></a>
-            </li>
-        <%}%>
-      </ul>
-
-    </main>
+    <form action="/runner/<%=runner._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   </body>
 </html>

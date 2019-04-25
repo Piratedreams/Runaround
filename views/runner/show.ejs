@@ -29,7 +29,7 @@
         <a href="/runner/<%=runner._id%>/edit">Edit</a>
       </section>
       <section>
-        <h2>Races Run by this Runner</h2>
+        <h2>Particitpated Events</h2>
         <ul>
           <% for (let i = 0; i < runner.event.length; i++) {%>
               <li><a href="/events/<%=runner.event[i]._id%>"><%=runner.events[i].title%></a></li>
@@ -37,11 +37,11 @@
         </ul>
       </section>
 
-      <section>
+
         <form action="/runners/<%=runner._id%>?_method=DELETE" method="POST">
           <button type="submit">Delete</button>
         </form>
-      </section>
+
     </main>
   </body>
 </html>
