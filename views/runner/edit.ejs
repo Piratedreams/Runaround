@@ -2,25 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Runner</title>
   </head>
   <body>
     <header>
       <h1>Edit <%=runner.name%>'s Info</h1>
       <nav>
         <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/runners">Runner Index</a>
-          </li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/runners">Runner Index</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <h2>Runner Attributes:</h2>
-      <form action="/runners/<%=runner._id%>?_method=PUT" method="post">
+      <form action="/runner/<%=runner._id%>?_method=PUT" method="POST">
         <input type="text"   name="name"   value="<%=runner.name%>"/><br/>
         <input type="text"   name="age"    value="<%=runner.age%>"/><br/>
         <input type="text"   name="gender" value="<%=runner.gender%>"/><br/>
