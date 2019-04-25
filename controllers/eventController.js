@@ -2,46 +2,54 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Event = require('../models/event');
+const mongoose = require('mongoose');
 
 
-router.get('/', (req, res) => {
-    res.render('event/index.ejs')
-});
-
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const foundEvent = await Event.find({})
-        res.render('event/show.ejs', {
-            events: foundEvent
-        });
-    } catch (err){
-        res.send(err);
+        const foundEvent = await Event.find({});
+    res.render('event/index.ejs', {
+        events: foundEvent
+    });
+    } catch (err) {
+        res.send(err)
     }
 });
 
 router.get('/new', async (req, res) => {
+    res.render('event/new.ejs')
+});
+
+router.post('/', async (req, res) => {
     try {
-        const foundEvent = await Event.find({})
-        res.render('event/new.ejs')
+        const createdEvent = await Event.create(req.body);
+        console.log(createdEvent);
+        res.redirect('/event');
     } catch (err) {
+        console.log(err)
         res.send(err)
     }
 });
 
-router.post('/event', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        const createdEvent = await Event.create(req.body);
-        res.redirect('/event');
-    } catch (err) {
-        res.send(err)
+        const allEvent = await Event.findById(req.params.Id)
+        res.render('event/edit.ejs', {
+            event: allEvent
+        });
+    } catch (err){
+        console.log(err);
+        res.send(err);
     }
 });
+
+
 
 
 
 router.get('/:id/edit', async (req, res) => {
     try {
-        const foundEvent = await Event.findById(req.params.id)
+        const foundEvent = await Event.findById(req.params.Id)
         res.render('event/edit.ejs', {
             event: foundEvent
         })
@@ -52,7 +60,7 @@ router.get('/:id/edit', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try{
-        const updateEvent = await Event.findByIdAndUpdate(req.params.id, {new: true});
+        const updateEvent = await Event.findByIdAndUpdate(req.params.id);
         res.redirect('/event')
     } catch (err) {
         res.send(err)
@@ -64,7 +72,9 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try{
-        const deletedEvent = await Event.delete(req.params.id);
+        const foundEvent = await Event.findByIdAndDelete(req.params.id);
+        const deleteEvent = await Event.findOne({'event': req.params.id})
+        
         res.redirect('/event')
     } catch (err) {
         res.send(err);
