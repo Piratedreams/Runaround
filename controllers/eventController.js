@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const foundEvent = await Event.find({});
     res.render('event/index.ejs', {
-        events: foundEvent
+        Event: foundEvent
     });
     } catch (err) {
         res.send(err)
@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
     try {
         const allEvent = await Event.findById(req.params.Id)
         res.render('event/edit.ejs', {
-            event: allEvent
+            Event: allEvent
         });
     } catch (err){
         console.log(err);
@@ -42,15 +42,11 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-
-
-
-
 router.get('/:id/edit', async (req, res) => {
     try {
         const foundEvent = await Event.findById(req.params.Id)
         res.render('event/edit.ejs', {
-            event: foundEvent
+            Event: foundEvent
         })
     } catch (err) {
         res.send(err)
@@ -65,9 +61,6 @@ router.put('/:id', async (req, res) => {
         res.send(err)
     }
 });
-
-
-
 
 router.delete('/:id', async (req, res) => {
     try{
