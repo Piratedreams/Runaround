@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const Event = require('../models/event');
-const mongoose = require('mongoose');
+
 
 
 router.get('/', async (req, res) => {
@@ -67,7 +66,7 @@ router.delete('/:id', async (req, res) => {
     try{
         const foundEvent = await Event.findByIdAndDelete(req.params.id);
         const deleteEvent = await Event.findOne({'event': req.params.id})
-        
+
         res.redirect('/event')
     } catch (err) {
         res.send(err);

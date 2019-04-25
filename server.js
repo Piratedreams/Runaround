@@ -21,7 +21,7 @@ app.use(session({
 
 app.use('/runner', runnerController);
 app.use('/event', eventController);
-app.use('/homepage', homeController)
+app.get('/', homeController)
 app.use('/auth', authController);
 
 app.listen(3000, () => {
