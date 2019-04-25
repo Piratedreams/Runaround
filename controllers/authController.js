@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const Runner = require('../models/runner')
 const bcrypt =require('bcryptjs')
 
 router.get('/login', (req, res) => {
@@ -13,16 +13,21 @@ router.post('/register', async(req, res) => {
   const password = req.body.password
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
   const userEntry = {}
-    userEntry.username = req.body.username
+    userEntry.email = req.body.email
+    userEntry.age = req.body.age
+    userEntry.name = req.body.name
+    userEntry.gender = req.body.gender
     userEntry.password = passwordHash
+    console.log(req.body);
   try {
     const createdRunner = await Runner.create(userEntry)
     req.session.logged = true
     req.session.runnersId = createdRunner._id
     console.log(createdRunner);
-    res.redirect('/runners')
+    res.redirect('/runner')
 
   } catch(error) {
+    console.log(error)
     res.send(error)
   }
 })
@@ -36,7 +41,7 @@ router.post('/login', async(req, res) => {
         req.session.usersId = foundUser._id
         console.log(req.session, 'login sucessful');
 
-        res.redirect('/runners')
+        res.redirect('/runner')
 
       } else {
         req.session.message = "Invalid password or username"

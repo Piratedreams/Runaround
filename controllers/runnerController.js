@@ -1,22 +1,18 @@
 const express = require('express');
-const router  = express.Router();
-const runner  = require('../models/runner');
 
+const router  = express.Router();
+const Runner  = require('../models/runner');
+const event   = require('../models/event');
 
 router.get ('/', async (req, res)=>{
     try {
-        const foundRunner = await runner.find({});
-        res.render('runner/index.ejs', {
-        })
-    } catch(err){
-        res.send(err)
-    }
-
-    // runners.find({}, (err, runnersFromTheDatabase)=>{
-    //     res.render('runner/index.ejs', {
-    //         runnersOnTheTemplate: runnersFromTheDatabase
-    //     });
-    // });
+        const foundRunner = await Runner.find({});
+        res.render('./runner/index.ejs', {
+            runner: foundRunner
+          })
+    } catch(err) {
+    res.send(err)
+  }
 });
 
 
@@ -27,16 +23,16 @@ router.get ('/', async (req, res)=>{
 router.get('/:id', async (req, res)=>{
 
     try {
-        const foundRunner = await runner.findById(req,params,id);
+        const foundRunner = await Runner.findById(req,params,id);
         res.render('show.ejs', {
-          runner: foundRunner
+          Runner: foundRunner
         });
 
         } catch(err){
             res.send(err)
         }
     // runner.
-    // findById(req.params.id)  
+    // findById(req.params.id)
     // .populate('runners')
     // .exec((err, runnerFromTheDatabase)=>{
     //     if(err){
@@ -49,17 +45,17 @@ router.get('/:id', async (req, res)=>{
 });
 
 router.get('/:id/edit', async (req, res)=>{
-    const foundRunner = await runnerFindById(req.params.id)
+    const foundRunner = await RunnerFindById(req.params.id)
 
     try {
         res.render('new.ejs', {
-            runner: foundRunner
+            Runner: foundRunner
         });
 
         } catch(err){
             res.send(err)
         }
-    
+
     // Runner.findById(req.params.id, (err, runnerFromTheDatabase)=>{
     //     res.render('runner/edit.ejs', {
     //         runnerOnTheTemplate: runnerFromTheDatabase
@@ -69,13 +65,14 @@ router.get('/:id/edit', async (req, res)=>{
 
 router.post('/', async (req, res)=>{
     try {
-        const createRunner = await runner.create(req.body);
-        res.redirect('/runner');
+      console.log(req.body);
+        const createRunner = await Runner.create(req.body);
+        redirect('/runners');
 
     } catch(err){
         res.send(err)
     }
-    
+
     // Runner.create(req.body, (err, newlyCreatedRunner)=>{
     //     console.log(newlyCreatedRunner)
     //     res.redirect('/runner')
@@ -84,7 +81,7 @@ router.post('/', async (req, res)=>{
 
 router.put('/:id', async (req, res)=>{
     try {
-        const updateRunner = await runner.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const updateRunner = await Runner.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.redirect('/runners');
 
     } catch(err){
@@ -99,7 +96,7 @@ router.put('/:id', async (req, res)=>{
 router.delete('/:id', async (req, res)=>{
 
     try {
-        const deleteRunner = await runner.delete(req.body)
+        const deleteRunner = await Runner.delete(req.body)
         res.redirect('/runners')
 
         } catch(err){
@@ -120,4 +117,3 @@ router.delete('/:id', async (req, res)=>{
 
 
 module.exports = router;
-
