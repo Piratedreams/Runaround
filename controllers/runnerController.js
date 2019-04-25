@@ -97,7 +97,7 @@ router.delete('/:id', async (req, res)=>{
 
     try {
         const deleteRunner = await Runner.delete(req.body)
-        res.redirect('/runners')
+        res.redirect('/homepage')
 
         } catch(err){
             res.show(err)

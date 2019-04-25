@@ -34,11 +34,11 @@ router.post('/register', async(req, res) => {
 
 router.post('/login', async(req, res) => {
   try {
-    const foundrunner = await Runner.findOne({'username': req.body.username})
-    if(foundUser){
-      if(bcrypt.compareSync(req.body.password, foundUser.password) === true){
+    const foundRunner = await Runner.findOne({'email': req.body.email})
+    if(foundRunner){
+      if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
-        req.session.usersId = foundUser._id
+        req.session.usersId = foundRunner._id
         console.log(req.session, 'login sucessful');
 
         res.redirect('/runner')
@@ -53,6 +53,7 @@ router.post('/login', async(req, res) => {
     }
   } catch(error) {
     res.send(error)
+    console.log(error);
   }
 })
 

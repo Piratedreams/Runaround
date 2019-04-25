@@ -8,9 +8,13 @@
     <header>
       <h1>Welcome!</h1>
       <nav>
-            <a href="/auth/logout">Logout</a>
+            <form action="/auth/logout">
+              <button type='submit'>Logout</button>
+            </form>
       </nav>
     </header>
-
+    <form action="/runner/<%=runner._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   </body>
 </html>
