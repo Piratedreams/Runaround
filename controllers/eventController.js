@@ -32,8 +32,8 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const allEvent = await Event.findById(req.params.Id)
-        res.render('event/edit.ejs', {
+        const allEvent = await Event.findById(req.params.id)
+        res.render('event/show.ejs', {
             Event: allEvent
         });
     } catch (err){
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
 
 router.get('/:id/edit', async (req, res) => {
     try {
-        const foundEvent = await Event.findById(req.params.Id)
+        const foundEvent = await Event.findById(req.params.id)
         res.render('event/edit.ejs', {
             Event: foundEvent
         })
