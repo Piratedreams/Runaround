@@ -7,7 +7,15 @@
     <title>Show Event</title>
 </head>
 <body>
-    <h1>showing Event</h1>
-    
+    <h1>showing <%=Event.eventName%></h1>
+    <section>
+      <a href="/event/<%=Event._id%>/edit">Edit</a>
+    </section>
+
+    <section>
+      <form action="/event/<%=Event._id%>?_method=DELETE" method="POST">
+        <button type="submit">Cancel Event</button>
+      </form>
+    </section>
 </body>
 </html>
