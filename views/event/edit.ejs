@@ -7,6 +7,10 @@
     <title>Event Edit Page</title>
 </head>
 <body>
-    
+    <h1> Edit event</h1>
+     <form action="/event/<%=Event.id%>?_method=PUT" method="POST">
+      <input type="text" name="eventName" value="<%=Event.eventName%>"><br>
+      <button type="submit">Update Event</button>
+    </form>
 </body>
 </html>
