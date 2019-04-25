@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Runner's Events</h1>
-    
+    <ul>
+      <% for (let i = 0; i < Event.length; i++){%>
+           <li><a href="/event/<%=Event[i].id%>"><%=Event[i].eventName %></a></li>
+      <%}%>
+    </ul>
 </body>
 </html>
