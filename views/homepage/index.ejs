@@ -3,36 +3,44 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   </head>
   <body>
     <h1>RunAround</h1>
 
-    <div>
-      <ul>
-        <li>Can relieve depression and improve mood.</li>
-        <li>Contrary to popular belief, running makes the knees stronger.</li>
-        <li>Running improves sleep and boosts the ability to focus.</li>
-        <li>Significantly improves cardiovascular health.</li>
-        <li>Fights age-related cognitive decline.</li>
-        <li>Makes you more resistant to stress, also a stress-releiver.</li>
-        <li>Burns calories.</li>
-        <li>Reduce your chances of an early death.</li>
-      </ul>
-    </div>
+    <% include ../partials/navBar.ejs%>
+    <style>
+                body {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+                .jumbotron {
+                  margin-top: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <%- include ../partials/carousel.ejs %>
+                <div class="jumbotron">
+                    <h1>All about Node</h1>
+                    <p class="lead">Check out our articles below!</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="list-group">
+                          LIST_OF_POSTS
+                        </div>
+                    </div>
+                </div>
+                <%- include ../partials/carousel.ejs %>
+            </div>
 
-    <div>
-      <form action='/auth/login'>
-      <button type="submit" class="btn btn-success">Register or Login</button>
-      </form>
-    </div>
 
-    <div>
-      <h2> Events </h2>
-      
-    </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

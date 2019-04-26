@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Event Index</title>
 </head>
 <body>
     <h1>Runner's Events</h1>
+
+    <div>
+    <form action='/'>
+      <button type='submit' class="btn btn-success">Home</button>
+    </form>
+   </div>
+
     <ul>
       <% for (let i = 0; i < Event.length; i++){%>
            <li><a href="/event/<%=Event[i].id%>"><%=Event[i].eventName %></a></li>
