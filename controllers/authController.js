@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const Runner = require('../models/runner')
 const bcrypt =require('bcryptjs')
 
 router.get('/login', (req, res) => {
@@ -13,30 +13,35 @@ router.post('/register', async(req, res) => {
   const password = req.body.password
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
   const userEntry = {}
-    userEntry.username = req.body.username
+    userEntry.email = req.body.email
+    userEntry.age = req.body.age
+    userEntry.name = req.body.name
+    userEntry.gender = req.body.gender
     userEntry.password = passwordHash
+    console.log(req.body);
   try {
     const createdRunner = await Runner.create(userEntry)
     req.session.logged = true
     req.session.runnersId = createdRunner._id
-
-    res.redirect('/runners')
+    console.log(createdRunner);
+    res.redirect('/runner')
 
   } catch(error) {
+    console.log(error)
     res.send(error)
   }
 })
 
 router.post('/login', async(req, res) => {
   try {
-    const foundrunner = await Runner.findOne({'username': req.body.username})
-    if(foundUser){
-      if(bcrypt.compareSync(req.body.password, foundUser.password) === true){
+    const foundRunner = await Runner.findOne({'email': req.body.email})
+    if(foundRunner){
+      if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
-        req.session.usersId = foundUser._id
+        req.session.usersId = foundRunner._id
         console.log(req.session, 'login sucessful');
 
-        res.redirect('/runners')
+        res.redirect('/runner')
 
       } else {
         req.session.message = "Invalid password or username"
@@ -48,6 +53,7 @@ router.post('/login', async(req, res) => {
     }
   } catch(error) {
     res.send(error)
+    console.log(error);
   }
 })
 
