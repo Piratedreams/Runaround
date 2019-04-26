@@ -1,47 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <header>
-      <h1>Show Page for <%=runner.name%></h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/runnerOverwriteModelError: C">Runner Index</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Runner Attributes:</h2>
-        <ul>
-          <li>Name: <%=runner.name%></li>
-        </ul>
-      </section>
-      <section>
-        <a href="/runner/<%=runner._id%>/edit">Edit</a>
-      </section>
-      <section>
-        <h2>Particitpated Events</h2>
-        <ul>
-          <% for (let i = 0; i < runner.event.length; i++) {%>
-              <li><a href="/events/<%=runner.event[i]._id%>"><%=runner.events[i].title%></a></li>
-          <% } %>
-        </ul>
-      </section>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Event</title>
+</head>
+<body>
+    <h1>showing <%=runner.name%></h1>
+    <section>
+      <a href="/runner/<%=runner._id%>/edit">Edit</a>
+    </section>
 
-
-        <form action="/runners/<%=runner._id%>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
-        </form>
-
-    </main>
-  </body>
+</body>
 </html>
