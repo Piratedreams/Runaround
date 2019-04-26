@@ -1,6 +1,18 @@
 h1 {
   text-align: center;
+  color: white;
+
 }
 ul {
   text-align: center;
+  text-decoration-style: none;
 }
+button {
+  text-align: center;
+  color: white;
+  background-color: #3C6997;
+}
+body {
+  background-color: #F18F01; 
+}
+
