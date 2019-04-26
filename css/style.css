@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
   text-align: center;
   color: white;
 
@@ -14,5 +14,10 @@ button {
 }
 body {
   background-color: #F18F01; 
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-
+.jumbotron {
+ margin-top: 10px;
+ background-color: #F46036;
+} */
