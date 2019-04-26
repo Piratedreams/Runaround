@@ -8,21 +8,22 @@ router.get ('/', async (req, res)=>{
     try {
 
         const foundRunner = await Runner.find({});
-        res.render('./runner/index.ejs', {
+    
+        res.render('runner/index.ejs', {
             runner: foundRunner
           })
     } catch(err) {
     res.send(err)
-  }
+    }
 });
 
 
 router.get('/:id', async (req, res)=>{
     try {
 
-        const foundRunner = await Runner.findById(req,params,id);
-        res.render('show.ejs', {
-          Runner: foundRunner
+        const foundRunner = await Runner.findById(req.params.id);
+        res.render('runner/show.ejs', {
+          runner: foundRunner
 
         });
 
@@ -32,39 +33,48 @@ router.get('/:id', async (req, res)=>{
 
 });
 
-router.get('/:id/edit', async (req, res)=>{
+router.get('/:id/edit',  async (req, res)=>{
     try {
-        const foundRunner = await runnerFindById(req.params.id)
-        res.render('runner/new.ejs', {
+        const foundRunner = await Runner.findById(req.params.id)
+        res.render('runner/edit.ejs', {
             runner: foundRunner
+        })
+        } catch (err){
 
-        });
-
-        } catch(err){
             res.send(err)
         }
+    });
 
 
 
-    // Runner.create(req.body, (err, newlyCreatedRunner)=>{
-    //     console.log(newlyCreatedRunner)
-    //     res.redirect('/runner')
-    // })
 
-});
+    
+
+
 
 router.put('/:id', async (req, res)=>{
     try {
 
         const updateRunner = await Runner.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        res.redirect('/runners');
- master
+
+        res.redirect('/');
+
 
     } catch(err){
         res.send(err);
     }
-});
 
+})
+
+router.delete('/:id', async (req, res)=>{
+    try {
+        const deleteRunner = await findByIdAndDelete(req.params.id);
+        res.redirect('/')
+
+        } catch(err){
+            res.show(err)
+        }
+    });
 
 
 module.exports = router;
