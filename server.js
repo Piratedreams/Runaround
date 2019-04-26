@@ -12,6 +12,9 @@ const homeController = require('./controllers/homeController')
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+app.use('/css', express.static('css'))
+
+
 
 app.use(session({
   secret: 'Toasts doesnt toast toast, toasters toast toast',
