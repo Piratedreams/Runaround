@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    <header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Index</title>
+</head>
+<body>
+    <h1>Runner's</h1>
 
-      <h1>My Account</h1>
-
-      <div>
-      <form action='/'>
-        <button type='submit' class="btn btn-success">Home</button>
-      </form>
-     </div>
-
-      <nav>
-            <form action="/auth/logout">
-              <button type='submit'>Logout</button>
-            </form>
-      </nav>
-    </header>
-    <form action="/runner/<%=runner._id%>?_method=DELETE" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-
-  </body>
+    <!-- <form action="/edit">
+        <button type="submit">edit</button>
+    </form> -->
+    <ul>
+      <% for (let i = 0; i < runner.length; i++){%>
+           <li><a href="/runner/<%=runner[i]._id%>"><%=runner[i].name %></a></li>
+      <%}%>
+    </ul>
+</body>
 </html>
