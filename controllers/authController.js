@@ -42,7 +42,9 @@ router.post('/login', async(req, res) => {
         req.session.usersId = foundRunner._id
         console.log(req.session, 'login sucessful');
 
-        res.redirect('/');
+
+        res.redirect('/')
+
 
       } else {
         req.session.message = "Invalid password or username"
@@ -59,6 +61,7 @@ router.post('/login', async(req, res) => {
 })
 
 router.get('/logout', (req, res) => {
+  
   req.session.destroy((error) => {
     if(error) {
       res.send(error)
@@ -66,6 +69,7 @@ router.get('/logout', (req, res) => {
       res.redirect('/auth/login')
     }
   })
+
 })
 
 module.exports = router
