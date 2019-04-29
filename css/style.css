@@ -1,3 +1,7 @@
+.hm {
+  color: black;
+}
+
 h1 {
   text-align: center;
   color: white;
@@ -13,7 +17,7 @@ button {
   background-color: #3C6997;
 }
 body {
-  background-color: #F18F01; 
+  background-color: #F18F01;
 }
 .card {
 float: left;
