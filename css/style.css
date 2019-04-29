@@ -13,6 +13,7 @@ button {
   color: white;
   background-color: #3C6997;
 }
+
 body{
   margin: 0;
   padding: 0;
@@ -33,15 +34,19 @@ body{
   height: 60px;
   /* background: #6cf; */
 }
+
 .card {
 float: left;
 margin: 17px;
+color: white;
 }
 .card-body{
+  color: white;
   background-color: #5B85AA;
 }
 .card-title{
   color: white;
+  text-decoration: none;
 }
 .card-text {
   color: white;
@@ -49,4 +54,10 @@ margin: 17px;
 .card-link {
   text-decoration-style: none;
   color: white;
+}
+html {
+  background-color: #F18F01;
+}
+#nav {
+  background-color: #5B85AA !important;
 }
