@@ -12,7 +12,7 @@ const homeController = require('./controllers/homeController')
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
-app.use('/css', express.static('css'))
+app.use(express.static('css'))
 
 
 

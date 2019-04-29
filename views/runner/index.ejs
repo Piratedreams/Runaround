@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,29 @@
 <body>
     <h1>Runner's</h1>
 
-    <!-- <form action="/edit">
-        <button type="submit">edit</button>
-    </form> -->
-    <ul>
-      <% for (let i = 0; i < runner.length; i++){%>
-           <li><a href="/runner/<%=runner[i]._id%>"><%=runner[i].name %></a></li>
-      <%}%>
-    </ul>
-</body>
+
+<div id="container">
+  <div id="head">
+      <link rel="stylesheet" href="css/style.css">
+      <title>Event Index</title>
+  </div>
+  <div id="body">
+      <h1>Runner's</h1>
+      <ul>
+        <% for (let i = 0; i < runner.length; i++){%>
+             <li><a href="/runner/<%=runner[i]._id%>"><%=runner[i].name %></a></li>
+       <%}%>
+      </ul>
+  </div>
+  <div id="footer">
+    <a href="https://www.averybrewing.com/events/four-on-the-fourth-4k">Avery 4k on the 4th</a>
+    <a href="https://bb10k.bolderboulder.com/">Bolder Boulder</a>
+    <a href="https://cherrycreeksneak.com/">Cherry Creek Sneak</a>
+    <a href="http://www.elgrito5k.org">El Grito</a>
+    <a href="http://goldengallop.com">Golden Gallop</a>
+    <a href="https://komencolorado.org/race-for-the-cure/">Race for the Cure</a>
+    <a href="https://www.runrocknroll.com/Events/Denver/The-Races/Half-Marathon">Rock&Roll Marathon</a>
+  </div>
+</div>  
 </html>
+

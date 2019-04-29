@@ -24,7 +24,7 @@ router.post('/register', async(req, res) => {
     req.session.logged = true
     req.session.runnersId = createdRunner._id
     console.log(createdRunner);
-    res.redirect('/runner')
+    res.redirect('/')
 
   } catch(error) {
     console.log(error)
@@ -36,12 +36,15 @@ router.post('/login', async(req, res) => {
   try {
     const foundRunner = await Runner.findOne({'email': req.body.email})
     if(foundRunner){
+      
       if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
         req.session.usersId = foundRunner._id
         console.log(req.session, 'login sucessful');
 
-        res.redirect('/runner')
+
+        res.redirect('/')
+
 
       } else {
         req.session.message = "Invalid password or username"
@@ -58,6 +61,7 @@ router.post('/login', async(req, res) => {
 })
 
 router.get('/logout', (req, res) => {
+  
   req.session.destroy((error) => {
     if(error) {
       res.send(error)
@@ -65,6 +69,7 @@ router.get('/logout', (req, res) => {
       res.redirect('/auth/login')
     }
   })
+
 })
 
 module.exports = router
