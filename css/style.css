@@ -1,6 +1,7 @@
+html,
 h1 {
   text-align: center;
-  color: white;
+  /* color: white; */
 
 }
 ul {
@@ -12,15 +13,28 @@ button {
   color: white;
   background-color: #3C6997;
 }
-body {
-  background-color: #F18F01 !important; 
-  padding-top: 20px;
-  padding-bottom: 20px; 
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
-.jumbotron {
- margin-top: 10px;
- background-color: #F46036;
-} 
+#body {
+  height: 100%;
+  /* background-color: #F18F01;  */
+  padding-bottom: 60px;
+}
+#container {
+  min-height: 100%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  /* background: #6cf; */
+}
+
 .card {
 float: left;
 margin: 17px;
