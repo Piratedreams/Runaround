@@ -1,10 +1,12 @@
+
 .hm {
   color: black;
 }
 
+
 h1 {
   text-align: center;
-  color: white;
+  /* color: white; */
 
 }
 ul {
@@ -16,18 +18,42 @@ button {
   color: white;
   background-color: #3C6997;
 }
-body {
-  background-color: #F18F01;
+
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+#body {
+  height: 100%;
+  /* background-color: #F18F01;  */
+  padding-bottom: 60px;
+}
+#container {
+  min-height: 100%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  /* background: #6cf; */
+
+}
+
 .card {
 float: left;
 margin: 17px;
+color: white;
 }
 .card-body{
+  color: white;
   background-color: #5B85AA;
 }
 .card-title{
   color: white;
+  text-decoration: none;
 }
 .card-text {
   color: white;
@@ -36,3 +62,11 @@ margin: 17px;
   text-decoration-style: none;
   color: white;
 }
+
+html {
+  background-color: #F18F01;
+}
+#nav {
+  background-color: #5B85AA !important;
+}
+

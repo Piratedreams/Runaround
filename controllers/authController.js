@@ -36,12 +36,15 @@ router.post('/login', async(req, res) => {
   try {
     const foundRunner = await Runner.findOne({'email': req.body.email})
     if(foundRunner){
+      
       if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
         req.session.usersId = foundRunner._id
         console.log(req.session, 'login sucessful');
 
+
         res.redirect('/')
+
 
       } else {
         req.session.message = "Invalid password or username"
