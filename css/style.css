@@ -13,7 +13,7 @@ button {
   background-color: #3C6997;
 }
 body {
-  background-color: #F18F01; 
+  background-color: #F18F01 !important; 
   padding-top: 20px;
   padding-bottom: 20px; 
 }
@@ -43,4 +43,7 @@ color: white;
 }
 html {
   background-color: #F18F01;
+}
+#nav {
+  background-color: #5B85AA !important;
 }
