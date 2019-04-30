@@ -5,7 +5,7 @@ const bcrypt =require('bcryptjs')
 
 router.get('/login', (req, res) => {
   res.render('login.ejs', {
-    message: req.session.message
+    message: undefined
   })
 })
 
@@ -22,9 +22,10 @@ router.post('/register', async(req, res) => {
   try {
     const createdRunner = await Runner.create(userEntry)
     req.session.logged = true
-    req.session.runnersId = createdRunner._id
+    req.session.runnerId = createdRunner._id
     console.log(createdRunner);
     res.redirect('/')
+    //5cc7c1accd58762bd26a7255
 
   } catch(error) {
     console.log(error)
@@ -36,21 +37,25 @@ router.post('/login', async(req, res) => {
   try {
     const foundRunner = await Runner.findOne({'email': req.body.email})
     if(foundRunner){
-      console.log('1', req.body.password, '2', foundRunner.password)
+
       if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
-        req.session.usersId = foundRunner._id
-        console.log(req.session, 'login sucessful');
+        req.session.runnerId = foundRunner._id
+        // console.log(req.session, 'login sucessful');
 
-        res.redirect('/');
+
+        res.redirect('/')
+
 
       } else {
-        req.session.message = "Invalid password or username"
-        res.redirect('/auth/login')
+        res.render('login.ejs',{
+          message: "Invalid password or username"
+        })
       }
     } else {
-      req.session.message = "Invalid password or username"
-      res.redirect('/auth/login')
+      res.render('login.ejs', {
+        message: "Invalid password or username"
+      })
     }
   } catch(error) {
     res.send(error)
