@@ -26,7 +26,8 @@
       <input type="text" name="password" placeholder="password"><br/>
       <button type="submit" class="btn btn-success">Login</button><br/>
     </form>
-    <small><%= message %></small>
-
+    <% if (typeof message != undefined) { %>
+      <%= message %>
+    <% } %>
   </body>
 </html>
