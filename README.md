@@ -17,16 +17,17 @@ Project 2
   Runners should be able to 
   - Register
   - create events 
-  - RSVP 
+ 
   
   Events:
-  - RSVP option
+
   - active headcount
   - Cost of attendance
   
   
   STRETCH
   
+  RSVP function
   
   After Party events linked
   
