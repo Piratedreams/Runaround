@@ -30,7 +30,7 @@ const event   = require('../models/event');
 router.get('/:id/edit',  async (req, res)=>{
     try {
         const foundRunner = await Runner.findById(req.params.id)
-        //const foundRunner = req.session.usersId;
+        console.log(foundRunner)
         res.render('runner/edit.ejs', {
             runner: foundRunner
         })

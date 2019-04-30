@@ -36,7 +36,7 @@ router.post('/login', async(req, res) => {
   try {
     const foundRunner = await Runner.findOne({'email': req.body.email})
     if(foundRunner){
-      
+      console.log('1', req.body.password, '2', foundRunner.password)
       if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
         req.session.usersId = foundRunner._id
