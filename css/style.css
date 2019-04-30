@@ -1,12 +1,12 @@
 
-.hm {
-  color: black;
-}
 
 
 h1 {
   text-align: center;
-  /* color: white; */
+
+  color: #131112;
+  padding: 12px;
+  font-family: 'Open Sans', sans-serif;
 
 }
 ul {
@@ -15,21 +15,23 @@ ul {
 }
 button {
   text-align: center;
-  color: white;
-  background-color: #3C6997;
+  color: #131112;
+  background-color: #279AF1;
 }
 
+body {
+  background-color: #F7F7FF !important; 
+  padding-top: 20px;
+  padding-bottom: 20px; 
+}
+.jumbotron {
+ margin-top: 10px;
+ background-color: #279AF1;
+} 
 
-body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-#body {
-  height: 100%;
-  /* background-color: #F18F01;  */
-  padding-bottom: 60px;
-}
+
+
+
 #container {
   min-height: 100%;
 }
@@ -42,31 +44,43 @@ body{
 
 }
 
+
 .card {
 float: left;
 margin: 17px;
-color: white;
+color: #131112;
+background-color: #F7F7FF !important;
+font-family: open-sans;
 }
 .card-body{
-  color: white;
-  background-color: #5B85AA;
+  color: #131112;
+  background-color: #F7F7FF;
+  font-family: open-sans !important;
 }
 .card-title{
-  color: white;
+  color: #131112;
   text-decoration: none;
+  font-family: open-sans !important;
 }
 .card-text {
-  color: white;
+  color: #131112;
+  font-family: open-sans !important;
 }
 .card-link {
   text-decoration-style: none;
-  color: white;
+  color: #131112;
+  size: 20%;
+  font-family: open-sans !important;
 }
 
 html {
-  background-color: #F18F01;
+   background-color: #F7F7FF !important;
 }
 #nav {
-  background-color: #5B85AA !important;
+  background-color: #F7F7FF !important;
 }
-
+#shadow{
+  max-height: 419px;
+  margin-bottom: 0px !important;
+  border: none;
+}

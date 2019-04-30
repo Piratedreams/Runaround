@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>Event Edit Page</title>
 </head>
 <body>
     <% include ../partials/navBar.ejs%>
-    <h1> Edit event</h1>
+    <h1>Edit event</h1>
      <form action="/event/<%=Event.id%>?_method=PUT" method="POST">
       <input class="form-control" type="text" placeholder="Default input" value="<%=Event.eventName%>"></br>
       <input class="form-control" name='location' type="text" placeholder="location" value='<%=Event.location%>'></br>
