@@ -1,7 +1,4 @@
 
-.hm {
-  color: black;
-}
 
 
 h1 {
@@ -52,36 +49,38 @@ body {
 float: left;
 margin: 17px;
 color: #131112;
-background-color: #279AF1 !important;
-font-family: 'Open Sans', sans-serif;
-border-radius: 5% !important;
+background-color: #F7F7FF !important;
+font-family: open-sans;
 }
 .card-body{
   color: #131112;
-  background-color: #279AF1;
-  font-family: 'Open Sans', sans-serif;
-  border-radius: 5% !important;
+  background-color: #F7F7FF;
+  font-family: open-sans !important;
 }
 .card-title{
   color: #131112;
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: open-sans !important;
 }
 .card-text {
   color: #131112;
-  font-family: 'Open Sans', sans-serif;
+  font-family: open-sans !important;
 }
 .card-link {
   text-decoration-style: none;
   color: #131112;
-  font-family: 'Open Sans', sans-serif;
+  size: 20%;
+  font-family: open-sans !important;
 }
 
 html {
-  background-color: #F7F7FF;
+   background-color: #F7F7FF !important;
 }
 #nav {
-  background-color: #279AF1 !important;
-  font-family: 'Open Sans', sans-serif;
+  background-color: #F7F7FF !important;
 }
-
+#shadow{
+  max-height: 419px;
+  margin-bottom: 0px !important;
+  border: none;
+}

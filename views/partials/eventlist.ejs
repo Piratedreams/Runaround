@@ -1,9 +1,13 @@
+
+
 <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <img src="https://www.keywesthalfmarathon.com/wp-content/uploads/2014/06/2014-kw-half-JZ-9174-300x300.jpg" class="card-img-top" alt="...">
-    <h5 class="card-title"><%=Event[i].eventName%></h5>
-    <p class="card-text"><%=Event[i].location%></br><%=Event[i].when%></p>
-    <a href="/runner/" class="card-link">Runner List</a>
-    <a href="/event/<%=Event[i].id%>" class="card-link">See more</a>
+  <div class="shadow p-3 mb-5 bg-white rounded" id='shadow'>
+    <div class="card-body">
+      <img src="https://www.keywesthalfmarathon.com/wp-content/uploads/2014/06/2014-kw-half-JZ-9174-300x300.jpg" class="card-img-top" alt="...">
+      <h5 class="card-title"><%=Event[i].eventName%></h5>
+      <p class="card-text"><%=Event[i].location%></br><%=Event[i].when%></p>
+      <a href="/runner/" class="card-link">Runner List</a>
+      <a href="/event/<%=Event[i].id%>" class="card-link">See more</a>
+    </div>
   </div>
 </div>
