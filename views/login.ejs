@@ -8,18 +8,16 @@
     <title>login</title>
   </head>
   <body>
-    <% include ./partials/navBar.ejs%>
+   
     <div class="auth">
     <h1>Register</h1>
     
     <% include ./partials/createUser.ejs%>
 
     <h1>Login</h1>
-    <form action="/auth/login" method="post">
-      <input type="email" name="email" placeholder="email"><br/>
-      <input type="text" name="password" placeholder="password"><br/>
-      <button type="submit" class="btn btn-success">Login</button><br/>
-    </form>
+
+    <% include ./partials/login.ejs%>
+  </div>
     <% if (typeof message != undefined) { %>
       <small><%= message %></small>
     <% } %>
