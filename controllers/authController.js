@@ -41,6 +41,7 @@ router.post('/login', async(req, res) => {
       if(bcrypt.compareSync(req.body.password, foundRunner.password) === true){
         req.session.logged = true
         req.session.runnerId = foundRunner._id
+
         // console.log(req.session, 'login sucessful');
 
 
