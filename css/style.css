@@ -3,7 +3,6 @@
   text-align: center;
 }
 
-
 h1 {
   text-align: center;
   color: #131112;
@@ -27,7 +26,7 @@ body {
 .jumbotron {
  margin-top: 10px;
  background-color: #279AF1;
-} 
+}
 
 #container {
   min-height: 100%;
@@ -75,6 +74,6 @@ html {
   background-color: #F7F7FF !important;
 }
 #shadow{
-  
+
   margin-bottom: 0px !important;
 }

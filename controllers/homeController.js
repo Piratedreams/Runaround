@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try{
       const foundRunner = await Runner.findById(req.session.runnerId)
       res.render('homepage/index.ejs', {
-        runner: foundRunner
+        runnerId: req.session.runnerId
       })
     } catch(error) {
       res.send(error)
