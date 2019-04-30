@@ -1,13 +1,9 @@
 
-
-
 h1 {
   text-align: center;
-
   color: #131112;
   padding: 12px;
   font-family: 'Open Sans', sans-serif;
-
 }
 ul {
   text-align: center;
@@ -18,7 +14,6 @@ button {
   color: #131112;
   background-color: #279AF1;
 }
-
 body {
   background-color: #F7F7FF !important; 
   padding-top: 20px;
@@ -28,10 +23,6 @@ body {
  margin-top: 10px;
  background-color: #279AF1;
 } 
-
-
-
-
 #container {
   min-height: 100%;
 }
@@ -40,11 +31,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 60px;
-  /* background: #6cf; */
-
 }
-
-
 .card {
 float: left;
 margin: 17px;
@@ -72,7 +59,9 @@ font-family: open-sans;
   size: 20%;
   font-family: open-sans !important;
 }
-
+.list-group{
+  background-color: #F7F7FF !important;
+}
 html {
    background-color: #F7F7FF !important;
 }
@@ -80,7 +69,6 @@ html {
   background-color: #F7F7FF !important;
 }
 #shadow{
-  max-height: 419px;
+  
   margin-bottom: 0px !important;
-  border: none;
 }
