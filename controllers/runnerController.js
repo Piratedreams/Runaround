@@ -35,8 +35,10 @@ router.get('/:id', async (req, res)=>{
 router.get('/:id/edit',  async (req, res)=>{
     try {
         const foundRunner = await Runner.findById(req.params.id)
+
         if (isAuthorized(req.session.runnerId, req.params.id)) {
         //const foundRunner = req.session.usersId;
+
         res.render('runner/edit.ejs', {
             runner: foundRunner
         })

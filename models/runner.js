@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const runnerSchema = mongoose.Schema({
-  name: {type: String, required: true},
+  name: {type: String, required: true, unique: true},
   age: {type: Number, required: true},
   gender: {type: String},
   email: {type:String, required:true},

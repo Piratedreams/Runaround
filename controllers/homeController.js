@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Runner = require('../models/runner')
 
+
 router.get('/', async (req, res) => {
   if(req.session.logged === true){
     try{
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
  } else {
    res.redirect('auth/login')
  }
+
 })
 //
 // router.get('/', (req, res) => {

@@ -5,6 +5,13 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 require('./db/db');
 
+// const userRunner = (req, res, next) => {
+//   user: runner
+//   next()
+// }
+
+// app.use(userRunner);
+
 const runnerController  = require('./controllers/runnerController');
 const eventController = require('./controllers/eventController');
 const authController = require('./controllers/authController');
@@ -12,9 +19,7 @@ const homeController = require('./controllers/homeController')
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
-app.use('/css', express.static('css'))
-
-
+app.use('/css', express.static('css')) 
 
 app.use(session({
   secret: 'Toasts doesnt toast toast, toasters toast toast',
@@ -24,7 +29,7 @@ app.use(session({
 
 app.use('/runner', runnerController);
 app.use('/event', eventController);
-app.get('/', homeController)
+app.use('/', homeController)
 app.use('/auth', authController);
 
 app.listen(3000, () => {
