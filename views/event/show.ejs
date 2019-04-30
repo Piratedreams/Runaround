@@ -12,18 +12,16 @@
 <body>
     <% include ../partials/navBar.ejs%>
     <h1>showing <%=Event.eventName%></h1>
-    <section>
-      <a href="/event/<%=Event._id%>/edit">Edit</a>
-    </section>
 <ul class="list-group">
   <li class="list-group-item"><%=Event.eventName%></li>
-  <li class="list-group-item"><%=Event.when%></li>
-  <li class="list-group-item"><%=Event.location%></li>
-  <li class="list-group-item"><%=Event.entranceFee%></li>
+  <li class="list-group-item">When: <%=Event.when%></li>
+  <li class="list-group-item">Where: <%=Event.location%></li>
+  <li class="list-group-item">Entrance fee: $<%=Event.entranceFee%></li>
 </ul>
+    <button type="button" href='/event/<%=Event._id%>/edit' class="btn btn-primary btn-lg btn-block">Edit</button>
     <section>
       <form action="/event/<%=Event._id%>?_method=DELETE" method="POST">
-        <button type="submit">Cancel Event</button>
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">DELETE</button>
       </form>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
