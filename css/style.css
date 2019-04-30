@@ -1,4 +1,9 @@
 
+.auth {
+  text-align: center;
+}
+
+
 h1 {
   text-align: center;
   color: #131112;
@@ -15,14 +20,15 @@ button {
   background-color: #279AF1;
 }
 body {
-  background-color: #F7F7FF !important; 
+  background-color: #F7F7FF !important;
   padding-top: 20px;
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
 }
 .jumbotron {
  margin-top: 10px;
  background-color: #279AF1;
 } 
+
 #container {
   min-height: 100%;
 }
