@@ -14,9 +14,9 @@
     <h1>showing <%=Event.eventName%></h1>
 <ul class="list-group">
   <li class="list-group-item"><%=Event.eventName%></li>
-  <li class="list-group-item"><%=Event.when%></li>
-  <li class="list-group-item"><%=Event.location%></li>
-  <li class="list-group-item"><%=Event.entranceFee%></li>
+  <li class="list-group-item">When: <%=Event.when%></li>
+  <li class="list-group-item">Where: <%=Event.location%></li>
+  <li class="list-group-item">Entrance fee: $<%=Event.entranceFee%></li>
 </ul>
     <button type="button" href='/event/<%=Event._id%>/edit' class="btn btn-primary btn-lg btn-block">Edit</button>
     <section>
