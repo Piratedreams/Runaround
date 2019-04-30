@@ -1,10 +1,12 @@
+ <form action="/event/" method="POST">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Create new event</span>
   </div>
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-    <input type='text' class="form-control" aria-label='eventName' placeholder='Event Name' aria-describedby="inputGroup-sizing-default"/>
-    <input type='date' class="form-control" aria-labele='when' aria-describedby="inputGroup-sizing-default" />
-    <input type='text' class="form-control" aria-labele='location' placeholder='location' aria-describedby="inputGroup-sizing-default"/>
-    <input type='number' class="form-control" aria-labele='entranceFee' placeholder ='entrance fee'aria-describedby="inputGroup-sizing-default"/>
+    <input type='text' class="form-control" name='eventName' placeholder='Event Name' aria-describedby="inputGroup-sizing-default"/>
+    <input type='date' class="form-control" name='when' aria-describedby="inputGroup-sizing-default" />
+    <input type='text' class="form-control" name='location' placeholder='location' aria-describedby="inputGroup-sizing-default"/>
+    <input type='number' class="form-control" name='entranceFee' placeholder ='entranceFee' aria-describedby="inputGroup-sizing-default"/>
+    <button type="submit" class="btn btn-secondary btn-lg btn-block">Create</button>
 </div>
+</form>
