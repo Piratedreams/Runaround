@@ -18,8 +18,10 @@
   <li class="list-group-item">Where: <%=Event.location%></li>
   <li class="list-group-item">Entrance fee: $<%=Event.entranceFee%></li>
 </ul>
-    <button type="button" href='/event/<%=Event._id%>/edit' class="btn btn-primary btn-lg btn-block">Edit</button>
     <section>
+      <form action='/event/<%=Event._id%>/edit'>
+       <button type='submit'  class="btn btn-primary btn-lg btn-block">Edit</button>
+      </form>
       <form action="/event/<%=Event._id%>?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-secondary btn-lg btn-block">DELETE</button>
       </form>
