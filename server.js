@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 require('./db/db');
+require('dotenv').config()
 
 const runnerController  = require('./controllers/runnerController');
 const eventController = require('./controllers/eventController');
@@ -33,3 +34,7 @@ app.use(function(req, res, next) {
 app.listen(3000, () => {
   console.log('YEARRRRD: ', 3000);
 });
+
+app.listen(process.env.PORT, () => {
+  console.log('listening on port 3000');
+})
