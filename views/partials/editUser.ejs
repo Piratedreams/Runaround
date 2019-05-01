@@ -1,0 +1,12 @@
+ <form action="/runner/<%=runner._id%>?_method=PUT" method="POST">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+    <input type='text' class="form-control" name='name' placeholder='Name' aria-describedby="inputGroup-sizing-default"/>
+    <input type='email' class="form-control" name='email' placeholder='email' aria-describedby="inputGroup-sizing-default" />
+    <input type='text' class="form-control" name='password' placeholder='password' aria-describedby="inputGroup-sizing-default"/>
+    <input type='number' class="form-control" name='age' placeholder ='age' aria-describedby="inputGroup-sizing-default"/>
+    <input type='text' class="form-control" name='gender' placeholder ='gender (optional)' aria-describedby="inputGroup-sizing-default"/>
+    <button type="submit" class="btn btn-secondary btn-lg btn-block">Update Account</button>
+</div>
+</form>
