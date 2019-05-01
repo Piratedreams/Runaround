@@ -23,11 +23,7 @@ body {
  margin-top: 10px;
  background-color: #279AF1;
 }
-
-#container {
-  min-height: 100%;
-}
-#footer {
+.footerBar {
   position: absolute;
   bottom: 0;
   width: 100%;
